@@ -95,21 +95,244 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+@font-face {
+    font-family: 'timeburnernormal';
+    src: url('../img/fonts/timeburnernormal.eot');
+    src: url('../img/fonts/timeburnernormal.eot') format('embedded-opentype'),
+    url('../img/fonts/timeburnernormal.woff2') format('woff2'),
+    url('../img/fonts/timeburnernormal.woff') format('woff'),
+    url('../img/fonts/timeburnernormal.ttf') format('truetype'),
+    url('../img/fonts/timeburnernormal.svg#timeburnernormal') format('svg');
+}
 
+/*
+ * Main Elements
+ */
+.draggable-area {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    position: absolute;
+    overflow: hidden;
+}
 
+.bottom-panel {
+    width: 100%;
+    height: 36px;
+    background: #8b8b8b;
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+}
 
+.clear {
+    clear: both;
+}
 
+body {
+    overflow: hidden;
+}
 
+.link {
+    cursor: pointer;
+}
 
+/*
+ * Panel
+ */
 
+.time {
+    float: right;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 10px 0 0;
+}
 
+.icon {
+    float: left;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin: 0 0 0 2px;
+}
 
+.icon:hover {
+    background-color: #787878;
+}
 
+.icon-start {
+    background-image: url("../img/github_icon.png");
+}
 
+.icon-game {
+    background-image: url("../img/logo_icon.png");
+}
 
+.icon-music {
+    background-image: url("../img/music_icon.png");
+}
 
+/*
+ * Window
+ */
 
+.window {
+    min-width: 300px;
+    min-height: 168px;
+    border-left: 1px solid #757677;
+    border-right: 1px solid #757677;
+    border-bottom: 1px solid #757677;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    user-select: none;
+    cursor: default;
+}
 
+.window-title {
+    width: 100%;
+    height: 3.5%;
+    min-height: 23px;
+    background-color: #757677;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    font-family: "helvtica", sans-serif;
+    color: #ffffff;
+}
+
+.window-title-button-close {
+    width: auto;
+    height: 80%;
+    float: right;
+
+}
+
+.window-content {
+    width: 100%;
+    height: 96.5%;
+}
+
+/*
+ * Music Window
+ */
+
+#window-music {
+    width: 400px;
+    height: 323px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/*
+ * Game Window
+ */
+
+#window-game {
+    width: 80%;
+    height: 80%;
+    min-width: 960px;
+    min-height: 530px;
+    margin: 50px auto;
+    z-index: 100;
+}
+
+.game-background {
+    background-color: #b3d4fc;
+}
+
+.game-title {
+    width: 100%;
+    font-size: 100px;
+    text-align: center;
+    font-family: "timeburnernormal", "helvtica", sans-serif;
+    color: #ffffff;
+    text-shadow: 5px 5px 5px #000000;
+    overflow: hidden;
+    margin: 0 0 10% 0;
+}
+
+.game-buttons {
+    width: 100%;
+    height: 100%;
+    margin: 0 35% 0 35%;
+}
+
+.game-button {
+    height: auto;
+    background-color: #999999;
+    font-size: 30px;
+    line-height: 45px;
+    font-family: "helvtica", sans-serif;
+    text-align: center;
+    margin: 1% 0 0 1%;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.game-button:hover {
+    background-color: #8188ac;
+}
+
+.game-buttons a, .game-buttons {
+    text-decoration: none;
+    color: #000000;
+    text-shadow: 1px 1px 1px #6e6e6e;
+}
+
+.game-button-large {
+    width: 30%;
+    //min-width: 284px;
+}
+
+.game-button-small {
+    float: left;
+    width: 14.5%;
+    //min-width: 140px;
+}
+
+/*
+ * Responsive
+ */
+@media handheld, only screen and (max-width: 960px) {
+    #window-game {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        margin: 0;
+    }
+
+    .window {
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .window-content {
+        height: 100%;
+    }
+
+    #window-music, .window-title, .bottom-panel {
+        display: none;
+    }
+
+    .game-buttons {
+        margin: 0 10% 0 10%;
+    }
+
+    .game-button-large {
+        width: 80%;
+    }
+
+    .game-button-small {
+        width: 39.5%;
+    }
+}
 
 /* ==========================================================================
    Helper classes
