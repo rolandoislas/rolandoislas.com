@@ -29,7 +29,34 @@ main.bringToFront = function (event) {
 
 main.timeLoop = function () {
     $(".time").html(new Date().toLocaleTimeString());
-    setTimeout(main.timeLoop, 1000);
+    if (main.running)
+        setTimeout(main.timeLoop, 1000);
+};
+
+main.backgroundLoop = function () {
+    var background = $(".game-background");
+    var pos = parseInt(background.css("margin-left"));
+    if (pos <= -900)
+        pos = 0;
+    background.css("margin-left", pos - 10);
+    if (main.running)
+        setTimeout(main.backgroundLoop, 1000)
+};
+
+main.startLoop = function () {
+    main.running = true;
+    main.timeLoop();
+    main.backgroundLoop();
+};
+
+main.iframeClicked = function () {
+    var iframeOverlap = $(this);
+    iframeOverlap.css("z-index", -1);
+};
+
+main.iframeLeave = function () {
+    var iframeOverlap = $(this);
+    iframeOverlap.css("z-index", 1);
 };
 
 main.ready = function () {
@@ -38,6 +65,9 @@ main.ready = function () {
     $(".icon-music").click(function () {main.toggleWindow("#window-music")});
     $(".window").draggable({ handle: $(this).find(".window-title"), stack: ".window" })
         .on("mouseup", main.bringToFront);
-    main.timeLoop();
+    $(".iframe-overlap").click(main.iframeClicked).on("mouseleave", main.iframeLeave);
+    $(window).blur(function(){main.running = false});
+    $(window).focus(main.startLoop);
+    main.startLoop()
 };
 $(document).ready(main.ready);
