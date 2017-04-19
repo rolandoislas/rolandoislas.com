@@ -3,7 +3,7 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Rolando Islas -- Developer -- @rolandoislas
 
 # THANKS
 
