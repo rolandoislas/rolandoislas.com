@@ -60,7 +60,7 @@ main.iframeLeave = function () {
 };
 
 main.ready = function () {
-    $(".game-button").click(main.startNewGame);
+    $(".game-button-new-game").click(main.startNewGame);
     $(".icon-game").click(function () {main.toggleWindow("#window-game")});
     $(".icon-music").click(function () {main.toggleWindow("#window-music")});
     $(".window").draggable({ handle: $(this).find(".window-title"), stack: ".window" })
