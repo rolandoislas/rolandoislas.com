@@ -330,6 +330,7 @@ body {
     .window {
         min-width: 0;
         min-height: 0;
+        border: none;
     }
 
     .window-content {
